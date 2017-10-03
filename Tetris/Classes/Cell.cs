@@ -6,8 +6,8 @@ using System.Drawing;
 
 namespace Tetris
 {
-    internal sealed class Cell
-        {
+    internal sealed class Cell : ICell
+    {
             //The color in which this cell must be painted in the board
 
             public Cell(int row, int column)

@@ -1,8 +1,8 @@
 ﻿
 namespace Tetris
 {
-    internal sealed class CellPoint
-        {
+    internal sealed class CellPoint : ICellPoint
+    {
           public CellPoint(int row, int column)
             {
                 Row = row;

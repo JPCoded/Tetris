@@ -9,7 +9,7 @@ using System.Drawing;
 namespace Tetris
 {
   
-    internal sealed class Block
+    internal sealed class Block : IBlock
     {
         //Stores the block definition for each rotation inside a 4x4 matrix
         private readonly Dictionary<int, List<string>> _rotations = new Dictionary<int, List<string>>();
@@ -207,7 +207,7 @@ namespace Tetris
 
         public bool FilledCell(int x, int y) => CurrentMatrix[y].Substring(x, 1).Equals("1");
 
-        private void InitializeBlock(params List<string>[] rotations)
+        public void InitializeBlock(params List<string>[] rotations)
         {
             //Initializes a new block
 

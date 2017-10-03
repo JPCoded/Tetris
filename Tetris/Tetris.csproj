@@ -56,9 +56,19 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Classes\Block.cs" />
+    <Compile Include="Classes\Board.cs" />
     <Compile Include="Classes\Cell.cs" />
     <Compile Include="Classes\CellPoint.cs" />
+    <Compile Include="Classes\FullRowsEventArgs.cs" />
+    <Compile Include="Interfaces\IBlock.cs" />
+    <Compile Include="Interfaces\IBoard.cs" />
+    <Compile Include="Interfaces\ICell.cs" />
+    <Compile Include="Interfaces\ICellPoint.cs" />
+    <Compile Include="Interfaces\IFullRowsEventArgs.cs" />
+    <Compile Include="Interfaces\IKeyboardHook.cs" />
+    <Compile Include="Interfaces\INewBlockEventArgs.cs" />
     <Compile Include="Classes\KeyboardHook.cs" />
+    <Compile Include="Classes\NewBlockEventArgs.cs" />
     <Compile Include="Classes\TetrisClass.cs">
       <SubType>Component</SubType>
     </Compile>

@@ -10,7 +10,7 @@ using System.Windows.Forms;
 namespace Tetris
 {
 
-    internal sealed class KeyboardHook : IDisposable
+    internal sealed class KeyboardHook : IKeyboardHook
     {
         public delegate void KeyDownEventHandler(Keys key);
 
@@ -97,7 +97,7 @@ namespace Tetris
         private bool disposedValue;
 
         // IDisposable
-        private void Dispose(bool disposing)
+        public void Dispose(bool disposing)
         {
             if (!disposedValue)
             {
