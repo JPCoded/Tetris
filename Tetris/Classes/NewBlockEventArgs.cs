@@ -6,9 +6,7 @@ using System;
 
 namespace Tetris
 {
-    
 
-       
         public sealed class NewBlockEventArgs : EventArgs, INewBlockEventArgs
         {
             public NewBlockEventArgs(int blockType, int nextBlockType)
