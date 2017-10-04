@@ -91,15 +91,13 @@ namespace Tetris
         }
 
         private delegate int HookProc(int nCode, IntPtr wParam, IntPtr lParam);
+        
 
-        #region "IDisposable Support"
+        private bool _disposedValue;
 
-        private bool disposedValue;
-
-        // IDisposable
         public void Dispose(bool disposing)
         {
-            if (!disposedValue)
+            if (!_disposedValue)
             {
                 if (disposing)
                 {
@@ -110,7 +108,7 @@ namespace Tetris
                     UnhookWindowsHookEx((int) _hookId);
                 }
             }
-            disposedValue = true;
+            _disposedValue = true;
         }
 
         ~KeyboardHook()
@@ -127,6 +125,5 @@ namespace Tetris
             GC.SuppressFinalize(this);
         }
 
-        #endregion
     }
 }
