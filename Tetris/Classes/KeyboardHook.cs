@@ -26,11 +26,11 @@ namespace Tetris
 
         private readonly IntPtr _hookId;
 
-        private readonly HookProc hookDelegate = KeyboardProc;
+        private readonly HookProc _hookDelegate = KeyboardProc;
 
         public KeyboardHook()
         {
-            _hookId = (IntPtr) SetWindowsHookEx(WH_KEYBOARD_LL, hookDelegate, IntPtr.Zero, 0);
+            _hookId = (IntPtr) SetWindowsHookEx(WH_KEYBOARD_LL, _hookDelegate, IntPtr.Zero, 0);
             if (_hookId == IntPtr.Zero)
             {
                 throw new Exception("Could not set keyboard hook");
@@ -54,7 +54,8 @@ namespace Tetris
             if (nCode == HC_ACTION)
             {
                 var @struct = default(KBDLLHOOKSTRUCT);
-                switch (wParam)
+                //DOn't know if this will work or not
+                switch ((int)wParam)
                 {
                     case WM_KEYDOWN:
                     case WM_SYSKEYDOWN:
@@ -64,7 +65,6 @@ namespace Tetris
                     case WM_KEYUP:
                     case WM_SYSKEYUP:
                         KeyUp?.Invoke(((KBDLLHOOKSTRUCT) Marshal.PtrToStructure(lParam, @struct.GetType())).vkCode);
-
                         break;
                 }
             }
